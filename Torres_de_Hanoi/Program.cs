@@ -14,53 +14,15 @@ namespace Torres_de_Hanoi
             Pila aux = new Pila();
             Pila fin = new Pila();
 
-            ini.push(new Disco(3));
-            ini.push(new Disco(2));
-            ini.push(new Disco(1));
-
             Hanoi juego = new Hanoi();
 
-            juego.mover_disco(ini, fin);
-            Console.WriteLine("________________________________________________________________________________");
-            Console.WriteLine("PRIMER MOVIMIENTO REALIZADO: ");
-            Console.WriteLine("Número de discos en las pilas => INI: " + ini.Size + " AUX: " + aux.Size + " FIN: " + fin.Size);
-            Console.WriteLine("TOP en las pilas => INI: " + ini.Top + " AUX: " + aux.Top + " FIN: " + fin.Top);
+            int numero = 3;
 
-            juego.mover_disco(ini, aux);
-            Console.WriteLine("________________________________________________________________________________");
-            Console.WriteLine("SEGUNDO MOVIMIENTO REALIZADO: ");
-            Console.WriteLine("Número de discos en las pilas => INI: " + ini.Size + " AUX: " + aux.Size + " FIN: " + fin.Size);
-            Console.WriteLine("TOP en las pilas => INI: " + ini.Top + " AUX: " + aux.Top + " FIN: " + fin.Top);
+            int movimientos = juego.iterativo(numero, ini, fin, aux);
 
-            juego.mover_disco(fin, aux);
-            Console.WriteLine("________________________________________________________________________________");
-            Console.WriteLine("TERCER MOVIMIENTO REALIZADO: ");
-            Console.WriteLine("Número de discos en las pilas => INI: " + ini.Size + " AUX: " + aux.Size + " FIN: " + fin.Size);
-            Console.WriteLine("TOP en las pilas => INI: " + ini.Top + " AUX: " + aux.Top + " FIN: " + fin.Top);
+            Console.WriteLine("El número de movimientos es: "+movimientos+".");
 
-            juego.mover_disco(ini, fin);
-            Console.WriteLine("________________________________________________________________________________");
-            Console.WriteLine("CUARTO MOVIMIENTO REALIZADO: ");
-            Console.WriteLine("Número de discos en las pilas => INI: " + ini.Size + " AUX: " + aux.Size + " FIN: " + fin.Size);
-            Console.WriteLine("TOP en las pilas => INI: " + ini.Top + " AUX: " + aux.Top + " FIN: " + fin.Top);
-
-            juego.mover_disco(aux, ini);
-            Console.WriteLine("________________________________________________________________________________");
-            Console.WriteLine("QUINTO MOVIMIENTO REALIZADO: ");
-            Console.WriteLine("Número de discos en las pilas => INI: " + ini.Size + " AUX: " + aux.Size + " FIN: " + fin.Size);
-            Console.WriteLine("TOP en las pilas => INI: " + ini.Top + " AUX: " + aux.Top + " FIN: " + fin.Top);
-
-            juego.mover_disco(aux, fin);
-            Console.WriteLine("________________________________________________________________________________");
-            Console.WriteLine("SEXTO MOVIMIENTO REALIZADO: ");
-            Console.WriteLine("Número de discos en las pilas => INI: " + ini.Size + " AUX: " + aux.Size + " FIN: " + fin.Size);
-            Console.WriteLine("TOP en las pilas => INI: " + ini.Top + " AUX: " + aux.Top + " FIN: " + fin.Top);
-
-            juego.mover_disco(ini, fin);
-            Console.WriteLine("________________________________________________________________________________");
-            Console.WriteLine("SÉPTIMO MOVIMIENTO REALIZADO: ");
-            Console.WriteLine("Número de discos en las pilas => INI: " + ini.Size + " AUX: " + aux.Size + " FIN: " + fin.Size);
-            Console.WriteLine("TOP en las pilas => INI: " + ini.Top + " AUX: " + aux.Top + " FIN: " + fin.Top);
+            if (movimientos == Math.Pow(2, numero) - 1) Console.WriteLine("El juego es correcto.");
 
             // Keep the console window open in debug mode.
             Console.WriteLine("Press any key to exit.");
